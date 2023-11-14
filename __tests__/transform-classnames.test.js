@@ -31,4 +31,10 @@ describe('Babel Plugin Transform Classnames', () => {
     const output = transformCode(input);
     expect(output).toMatchSnapshot();
   });
+
+  it('transforms CSS file import', () => {
+    const input = 'import "./styles.css";';
+    const output = transformCode(input);
+    expect(output).toMatchSnapshot();
+  });
 });

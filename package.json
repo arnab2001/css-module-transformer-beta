@@ -18,7 +18,7 @@
     "babel-preset-react": "^6.24.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.0",
+    "@babel/core": "^7.23.3",
     "@babel/preset-react": "^7.23.3",
     "babel-jest": "^27.0.6",
     "jest": "^27.0.6"
@@ -26,6 +26,7 @@
   "author": "Arnab Chatterjee",
   "license": "ISC",
   "dependencies": {
-    "@babel/preset-env": "^7.23.3"
+    "@babel/preset-env": "^7.23.3",
+    "@babel/register": "^7.22.15"
   }
 }

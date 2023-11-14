@@ -17,6 +17,12 @@ exports[`Babel Plugin Transform Classnames leaves other JSX attributes unchanged
 });"
 `;
 
+exports[`Babel Plugin Transform Classnames transforms CSS file import 1`] = `
+"\\"use strict\\";
+
+require(\\"./styles.module.css\\");"
+`;
+
 exports[`Babel Plugin Transform Classnames transforms dynamic class name with hyphen 1`] = `
 "\\"use strict\\";
 
