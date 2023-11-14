@@ -1,0 +1,22 @@
+
+**.gitignore:**
+
+```gitignore
+# Node.js
+node_modules/
+
+# Editor files
+.vscode/
+.idea/
+
+# Compiled output
+dist/
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Dependency directories
+/jest-transform-cache/

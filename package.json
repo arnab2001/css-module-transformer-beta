@@ -1,0 +1,31 @@
+{
+  "name": "css-module-transformer",
+  "version": "1.0.0",
+  "description": "It transforms normal css syntax to css modules syntax",
+  "main": "transform-classname.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "environment": "node",
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest"
+    }
+  },
+  "dependecy": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-classname": "^1.0.0",
+    "babel-preset-react": "^6.24.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-react": "^7.23.3",
+    "babel-jest": "^27.0.6",
+    "jest": "^27.0.6"
+  },
+  "author": "Arnab Chatterjee",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/preset-env": "^7.23.3"
+  }
+}
