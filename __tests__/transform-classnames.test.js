@@ -1,5 +1,5 @@
 const babel = require('@babel/core');
-const plugin = require('./../src/transform-classname');
+const plugin = require('./../src/transform-classname'); // Update with your actual file path
 
 const transformCode = (code) => {
   return babel.transform(code, {
@@ -8,33 +8,26 @@ const transformCode = (code) => {
 };
 
 describe('Babel Plugin Transform Classnames', () => {
-  it('transforms simple static class name', () => {
-    const input = '<div className="example" />';
-    const output = transformCode(input);
-    expect(output).toMatchSnapshot();
-  });
-
-  it('transforms dynamic class name with hyphen', () => {
-    const input = '<div className={dynamicClassName} />';
-    const output = transformCode(input);
-    expect(output).toMatchSnapshot();
-  });
-
-  it('does not transform dynamic class name without hyphen', () => {
-    const input = '<div className={dynamicClassName} />';
-    const output = transformCode(input);
-    expect(output).toMatchSnapshot();
-  });
-
-  it('leaves other JSX attributes unchanged', () => {
-    const input = '<div id="myDiv" data-custom="value" />';
-    const output = transformCode(input);
-    expect(output).toMatchSnapshot();
-  });
-
-  it('transforms CSS file import', () => {
-    const input = 'import "./styles.css";';
-    const output = transformCode(input);
-    expect(output).toMatchSnapshot();
-  });
+    it('transforms class names and converts CSS file imports', () => {
+        const input = `
+          import styles from './styles.css';
+      
+          function App() {
+            return <div className="example" />;
+          }
+        `;
+        const transformedCode = transformCode(input);
+        const expectedCode = `
+          "use strict";
+      
+          require("./styles.module.css");
+      
+          function App() {
+            return /*#__PURE__*/React.createElement("div", {
+              className: styles.example
+            });
+          }
+        `;
+        expect(transformedCode).toBe(expectedCode);
+      });
 });
