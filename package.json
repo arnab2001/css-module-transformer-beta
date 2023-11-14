@@ -1,20 +1,22 @@
 {
-  "name": "css-module-transformer",
+  "name": "css-module-transformer-beta",
   "version": "1.0.0",
-  "description": "It transforms normal css syntax to css modules syntax",
-  "main": "transform-classname.js",
+  "description": "Transforms normal CSS syntax to CSS modules syntax",
+  "main": "lib/transformClasses.js",
+  "bin": {
+    "transform-classes": "./bin/transform-classes.js"
+  },
   "scripts": {
     "test": "jest"
   },
   "jest": {
-    "environment": "node",
+    "testEnvironment": "node",
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest"
     }
   },
-  "dependecy": {
+  "dependencies": {
     "babel-core": "^6.26.3",
-    "babel-plugin-transform-classname": "^1.0.0",
     "babel-preset-react": "^6.24.1"
   },
   "devDependencies": {
@@ -24,9 +26,5 @@
     "jest": "^27.0.6"
   },
   "author": "Arnab Chatterjee",
-  "license": "ISC",
-  "dependencies": {
-    "@babel/preset-env": "^7.23.3",
-    "@babel/register": "^7.22.15"
-  }
+  "license": "ISC"
 }

@@ -1,33 +1,16 @@
-const babel = require('@babel/core');
-const plugin = require('./../src/transform-classname'); // Update with your actual file path
+// transformClasses.test.js
+const { transform } = require('@babel/core');
+const transformClasses = require('../lib/transformClasses');
 
-const transformCode = (code) => {
-  return babel.transform(code, {
-    plugins: [plugin],
+test('transforms class names correctly', () => {
+  const code = '<div className="example" />';
+  const expected = '<div className={styles["example"]} />';
+
+  const result = transform(code, {
+    plugins: [transformClasses],
   }).code;
-};
 
-describe('Babel Plugin Transform Classnames', () => {
-    it('transforms class names and converts CSS file imports', () => {
-        const input = `
-          import styles from './styles.css';
-      
-          function App() {
-            return <div className="example" />;
-          }
-        `;
-        const transformedCode = transformCode(input);
-        const expectedCode = `
-          "use strict";
-      
-          require("./styles.module.css");
-      
-          function App() {
-            return /*#__PURE__*/React.createElement("div", {
-              className: styles.example
-            });
-          }
-        `;
-        expect(transformedCode).toBe(expectedCode);
-      });
+  expect(result.trim()).toEqual(expected.trim());
 });
+
+// Add more tests as needed
